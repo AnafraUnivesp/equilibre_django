@@ -218,6 +218,36 @@ Obs: Foi inserido um **wildcard** no código para permitir também outros hosts(
 
 ![Acessando minha aplicação no via Domínio](./static/img/007_sucesso_dominio.png)
 
+# TESTES
+
+## TDD - Desenvolvimento Orientado a Testes ( em conjunto com a integração contínua)
+
+
+Para facilitar o processo de testes, crie uma **nova Issue** no Github, chamada: [Implementar Integração Contínua](https://github.com/AnafraUnivesp/equilibre_django/issues/4)
+
+Estes testes servirão para entender se a nossa aplicação funcionára conforme o esperado. 
+
+1. Baixe o programa **pytest-edjango**,acese a documentação do mesmo clicando [aqui](https://pytest-django.readthedocs.io/en/latest/)
+O programa, trarás as funcionalidade do Django para a nossa área de testes. 
+
+
+![Pytest-Django](./static/img/009_pystest_django.png)
+
+
+2. Para instalar a dependência pyteste,insira os comando do pip conforme a documentação. Porém os testes serão apenas realizados em um **ambinte de desenvolvimento**. 
+
+```
+$ pip install -d pytest-django
+
+
+```
+3. Após realizar a instalar, verifique no Settings da sua IDE, se o Pytest está habilitado para testes. Como estu utilizando o VS Code, realizei o seguinte caminho:
+
+![Settings VS Code](./static/img/010_config_pytest_vscode.png)
+
+
+
+
 
 
 Parei Aqui [Imersão Django (EP. 2)](https://www.youtube.com/watch?v=wj4Qj73Mz7I) 
