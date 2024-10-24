@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-&dtp&0uvn6x8yf&p&5--vmx*76mb-u@+ovuq(fvk_w1y0_lv4e
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://equilibreapp.onrender.com', '*']
 
 
 # Application definition
