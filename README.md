@@ -31,6 +31,7 @@ exemplo
 
 Neste trecho houve a instalação do **django** mais a **biblioteca** <font color="red">**gunicor**</font>
 
+> O gunicor é um **servidor de aplicação** que atende as requisições do nosso servidor.
 
 ```
 pip install django gunicorn
@@ -172,7 +173,57 @@ pip freeze > requirements.txt
 ***fonte:** [Stackoverflow](https://stackoverflow.com/questions/46854451/pip-install-r-requirements-txt-errno-2-no-such-file-or-directory-requiremen)
 
 
+3. **IMPORTANTE:** 
+
+Ainda no Render, na sessão **START COMMAND**, preencha o **nome da pasta** que se encontra a sua aplicação.
+Como no nosso caso escolhemos a biblioteca **gunicorn** e **python3** como linguagem o seguinte campo ficou da seguinte forma:
+
+
+> ./$ gunicorn equilibreapp.wsgi
+
+**Obs:** Este nome, é o nome definido no Render, o mesmo poderá ser alterado futuramente, acesse o **Settings Render** para editar e configurar novas informações.
+
+4. Após execução, o Render gerará uma página de logs de deploy. Portanto é necessário atualizar as informações locais, subi-las para a **branch main**, já que o Render buscará a aplicação na mesma. 
+
+
+5. **IMPORTANTE:** 
+
+Localize no Render o endereço de domínio da sua aplicação:
+
+![Localizado meu dominio](./static/img/006_endereco_dominio_logs.png)
+
+O deploy apresentará um **erro de deploy** já previsto ao acessarmos o endereço de domínio gerado pelo Render.
+
+
+![Erro de acesso domínio](./static/img/008_erro_de_acess-_domínio.png)
+
+
+6. Retorne ao repositório do projeto, acesse o arquivo **Settings.py**
+
+7. Adicione o endereço no campo **ALLOWED_HOSTS**
+
+```
+ALLOWED_HOSTS = ['https://equilibreapp.onrender.com', '*']
+
+```
+Obs: Foi inserido um **wildcard** no código para permitir também outros hosts(qualquer).
+
+
+8. Realize o commit e o merge novamente e subi as alterações na branch main.
+
+9. O próprio Render irá sincronizar os deploys junto ao Github. 
+
+10. Ao acessar novamente o domínio, notamos que nossa página principal rodou com sucesso:
+
+
+![Acessando minha aplicação no via Domínio](./static/img/007_sucesso_dominio.png)
 
 
 
+Parei Aqui [Imersão Django (EP. 2)](https://www.youtube.com/watch?v=wj4Qj73Mz7I) 
 
+
+# Referências:
+
+- [Imersão Django](https://www.youtube.com/watch?v=zLIeu9cPYrY&t=553s)
+- [Tutorial de Configuração do Render](https://www.youtube.com/watch?v=bnCOyGaSe84)
