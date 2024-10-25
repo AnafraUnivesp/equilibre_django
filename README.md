@@ -220,10 +220,9 @@ Obs: Foi inserido um **wildcard** no código para permitir também outros hosts(
 
 ![Acessando minha aplicação no via Domínio](./static/img/007_sucesso_dominio.png)
 
-# TESTES
+## Testes
 
 ## TDD - Desenvolvimento Orientado a Testes ( em conjunto com a integração contínua)
-
 
 Para facilitar o processo de testes, crie uma **nova Issue** no Github, chamada: [Implementar Integração Contínua](https://github.com/AnafraUnivesp/equilibre_django/issues/4)
 
@@ -332,11 +331,24 @@ python manage.py runserver
 ![Teste 01 - url.py ](./static/img/016_hello_univesp.png)
 
 
-## **Servidor de Integração Contínua - Utilizando o Github Actions
+## **Servidor de Integração Contínua - Utilizando o Github Actions**
 
+Para executarmos os testes automaticamente, podemos realizar uma configuração, construindo um ambiente que rode nossos testes em um ambiente virtual.
 
+1. No terminal informe o comando abaixo, onde foi terminado um código de sucesso.
+```
+pytest
 
+```
+2. Para criar essa configuração de teste no Github Actions, criamos manualmente Na pasta raiz a pasta **.github/workflows**
+3. Crie um arquivo **django.yml**, nele faremos algumas configurações básicas..
+4. Consulte o arquivo para verificar os detalhes. 
+5. Também foi configurada a **instalação do pipenv**
 
+```
+ pip install pipenv
+
+```
 
 
 
