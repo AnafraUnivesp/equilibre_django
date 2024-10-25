@@ -237,16 +237,30 @@ O programa, trarás as funcionalidade do Django para a nossa área de testes.
 2. Para instalar a dependência pyteste,insira os comando do pip conforme a documentação. Porém os testes serão apenas realizados em um **ambinte de desenvolvimento**. 
 
 ```
-$ pip install -d pytest-django
-
+$ pip install pytest-django
 
 ```
 3. Após realizar a instalar, verifique no Settings da sua IDE, se o Pytest está habilitado para testes. Como estu utilizando o VS Code, realizei o seguinte caminho:
 
 ![Settings VS Code](./static/img/010_config_pytest_vscode.png)
 
+Obs: Durante o desenvolvimento do projeto, foi mais interessante instalar a **IDE Pycharm** 
 
+4. Para realizarmos o teste, foi necessário criar um novo arquivo dentro da pasta do meu projeto equilibreapp padrão chamado
+**test_home.py**
 
+5. No corpo do arquivo teste inserir o seguinte comando abaixo:
+
+```
+def test_home_status_code(client:Client)
+
+```
+6. Caso o Pychard não identifique o Client, será necessário instalar a bibliteca/ dependências **django.test**
+
+```
+ pip install django.test
+
+```
 
 
 
