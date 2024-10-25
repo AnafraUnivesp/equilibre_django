@@ -221,6 +221,141 @@ Obs: Foi inserido um **wildcard** no código para permitir também outros hosts(
 
 ![Acessando minha aplicação no via Domínio](./static/img/007_sucesso_dominio.png)
 
+## Testes
+
+## TDD - Desenvolvimento Orientado a Testes ( em conjunto com a integração contínua)
+
+Para facilitar o processo de testes, crie uma **nova Issue** no Github, chamada: [Implementar Integração Contínua](https://github.com/AnafraUnivesp/equilibre_django/issues/4)
+
+Estes testes servirão para entender se a nossa aplicação funcionára conforme o esperado. 
+
+1. Baixe o programa **pytest-edjango**,acese a documentação do mesmo clicando [aqui](https://pytest-django.readthedocs.io/en/latest/)
+O programa, trarás as funcionalidade do Django para a nossa área de testes. 
+
+
+![Pytest-Django](./static/img/009_pystest_django.png)
+
+
+2. Para instalar a dependência pyteste,insira os comando do pip conforme a documentação. Porém os testes serão apenas realizados em um **ambinte de desenvolvimento**. 
+
+```
+$ pip install pytest-django
+
+```
+3. Após realizar a instalar, verifique no Settings da sua IDE, se o Pytest está habilitado para testes. Como estu utilizando o VS Code, realizei o seguinte caminho:
+
+![Settings VS Code](./static/img/010_config_pytest_vscode.png)
+
+**Obs:** Durante o desenvolvimento do projeto, foi mais interessante instalar a **IDE Pycharm**. Na imagem abaixo é possível
+identificar, como realizar a mesma configuração do pytest, no settings do Pycharm.
+
+
+![Settings VS Code](./static/img/011_config_pytest_pycharm.png)
+
+
+4. Para realizarmos o teste, foi necessário criar um novo arquivo dentro da pasta do meu projeto equilibreapp padrão chamado
+**test_home.py**
+
+5. No corpo do arquivo teste inserir o seguinte comando abaixo:
+
+```
+def test_home_status_code(client:Client)
+
+```
+6. Caso o Pychard não identifique o Client, será necessário instalar a bibliteca/ dependências **django.test**
+
+```
+ pip install django.test
+
+```
+
+### **Teste de CRUD**
+
+No arquivo **test_home.py** inserimos os comando para realizar os primeiros teste **(Solicitação x Reposta)**:
+
+![Settings VS Code](./static/img/012_teste_de_get_200.png)
+
+1. O django irá disponibilizar o objetivo Client para que possamos realizar o testes;
+2. O objeto do tipo Client, irá emular requisições https;
+3. Para isso realize o import da classe e crie um get, o qual a resposta será obtida através da raiz do projeto,onde inserimos ('/').
+4. Ao rodar o teste, o log do terminal, informará que falta configurar o Settings do emulador de teste, o qual está 
+disponível na documentação do [Pyteste-Django](https://pytest-django.readthedocs.io/en/latest/#example-using-pytest-ini-or-tox-ini)
+
+Para configurar o settings do pytest, será necessário criar um novo arquivo na **raiz do projeto**, vamos chamá-la de 
+**setup.cfg**. *cfg* se refere a *Configuração*
+
+
+![Settings VS Code](./static/img/013_arquivo_setup_log.png)
+
+1. Na imagem acima, podemos identificar que na dependência foi inserida o nome da pasta da aplicação e o foi adicionado o tool junto ao nome da condiguração.
+2. O python também disponibiliza como padrão os modelos dos arquivos para testes
+3. Na imagem também destacamos o arquivo setup.cf salvo na árvore do projeto
+4. No log também identificamos uma falha acusando o código 404 (Página não encontrada)
+5. Como não implantamos uma página de fato no django o código 404 chama uma página válida para ser exibida.
+
+
+### **Teste de CRUD** - Criando uma view
+
+Para que a página seja exibida, criamos um novo arquivo, chamado **home_view** dentro da nossa pasta de projeto. 
+
+1. Na view(home) inicialmente precisamos sempre inciá-la com um parâmetro chamado request;
+2. A seguir devemos definir o **path** que esta view irá responder.
+3. No arquivo **url.py** temos algumas informações padrõnizadas do Django. 
+4. Crie um novo path e indique a função que foi criada(home);
+5. Lembre-se de informar no import a localização da view( neste caso a pasta do projeto) e o nome da função home
+
+
+![Teste 01 - url.py ](./static/img/014_url_log_erro.png)
+
+6. **Como esperado** será apresentado um novo **erro** no log do terminal
+7. O path vazio, faz uma busca na raiz do nosso projeto, o qual será atendido pela view home. 
+8. Como na imagem acima, o erro indica que a **requisição http, retornou uma informação vazia**
+9. Para corrigir o erro, precisamos indicar na nossa view o retorno de um requisição simples. 
+
+### **Teste de CRUD** - Nosso Primeiro Hello Univesp
+
+1. Como na imagem abaixo, retornamos no arquivo **home_view.py** e informamos a função **HttpResponse**
+2. Também indicamos o retorno aguardado pela nossa requisição e a mensagem a ser apresentada na tela.
+3. Ao executar, a requisição foi executada com sucesso
+
+![Teste 01 - url.py ](./static/img/015_home_view_teste_passed.png)
+
+4. Para executar de fato, rode localmente a aplicação para verificar se as requisições realizadas ao servidor retornarão o nosso primeir Hello Univesp
+5. No terminal rode:
+
+```
+python manage.py runserver
+
+```
+6. Verifique o localhost gerado pelo servidor:
+
+![Teste 01 - url.py ](./static/img/016_hello_univesp.png)
+
+
+## **Servidor de Integração Contínua - Utilizando o Github Actions**
+
+Para executarmos os testes automaticamente, podemos realizar uma configuração, construindo um ambiente que rode nossos testes em um ambiente virtual.
+
+1. No terminal informe o comando abaixo, onde foi terminado um código de sucesso.
+```
+pytest
+
+```
+2. Para criar essa configuração de teste no Github Actions, criamos manualmente Na pasta raiz a pasta **.github/workflows**
+3. Crie um arquivo **django.yml**, nele faremos algumas configurações básicas..
+4. Consulte o arquivo para verificar os detalhes. 
+5. Também foi configurada a **instalação do pipenv**
+
+```
+ pip install pipenv
+
+```
+
+
+
+
+
+
 
 
 Parei Aqui [Imersão Django (EP. 2)](https://www.youtube.com/watch?v=wj4Qj73Mz7I) 
