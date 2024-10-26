@@ -22,7 +22,7 @@ jobs:
       - name: install dependences
         run:
          pip install pipenv
-         pipenv sync
+         pipenv sync --dev
 
       - name: run automatic tests
         run:
