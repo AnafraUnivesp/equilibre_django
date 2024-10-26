@@ -16,6 +16,7 @@ pipenv = "==2024.2.0"
 
 [dev-packages]
 pytest = "*"
+pytest-django = "*"
 
 [requires]
 python_version = "3.9"
