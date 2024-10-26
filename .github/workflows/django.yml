@@ -1,25 +1,30 @@
-name: Aplicação Django
+name: Aplicacao Django
 
-on: [pull_request] # aqui eu informo a partir de qual ponto deverá ser executada
+on: [pull_request]
 
 jobs:
   build:
     env:
-      PIPENV_NO_INHERIT: 1         # nesta variável, não quero se seja herdado ouras variável de outro diretórios acima
-      PIPENV_IGNORE_VIRTUALENVS: 1 # nesta variável, não quero que seja gerado um novo ambiente virtual, pois estaremos utilizando um servidor de ci isolado
-    runs-on: ubuntu-latest         # ambiente/sistema operacional que o nosso sistema irá rodar
+      PIPENV_NO_INHERIT: 1
+      PIPENV_IGNORE_VIRTUALENVS: 1
+    
+    runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2      # função que baixa o código fonte para dentro do meu ambiente isolado
-    - name: Setup Python             # instala o python na versão indicada
-    - uses: actions/setup-python@v1  # diretiva
-      with:
-        python-version: 3.8
-    - name: Instalar Dependências
-      run:
-        pip install pipenv            #instale o pipenv
-        pipenv sync --dev             # rode em um ambiente de desenvolvimento
-    - name: Rodar Testes Automáticos
+      - name: Check out repository code
+        uses: actions/checkout@v2
 
-      run:
-        pip env pytest equilibreapp # rode o pytest dentro do diretório equilibreapp em um ambiente virtual
+      - name: Setup Python 3.9
+        uses: actions/setup-python@v1
+        with:
+          python-version: "3.9"
+
+      - name: Install pipenv
+        run: pip install pipenv
+
+      - name: Install dependencies
+        run: pipenv install --dev
+
+      - name: run automatic tests
+        run:
+          pipenv run pytest equilibreapp/

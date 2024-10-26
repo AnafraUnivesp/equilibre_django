@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+asgiref = "==3.8.1"
+django = "==4.2.16"
+gunicorn = "==23.0.0"
+packaging = "==24.1"
+sqlparse = "==0.5.1"
+typing-extensions = "==4.12.2"
+tzdata = "==2024.2"
+pipenv = "==2024.2.0"
+
+
+[dev-packages]
+pytest = "*"
+pytest-django = "*"
+
+[requires]
+python_version = "3.9"
