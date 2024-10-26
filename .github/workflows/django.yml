@@ -20,9 +20,9 @@ jobs:
           python-version: "3.9"
 
       - name: install dependences
-        run:
-         pip install pipenv
-         pipenv sync --dev
+        run: 
+          pip install pipenv
+          pipenv install --dev
 
       - name: run automatic tests
         run:
