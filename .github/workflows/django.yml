@@ -6,25 +6,25 @@ jobs:
   build:
     env:
       PIPENV_NO_INHERIT: 1
-      PIPENV_IGNORE_VIRTUALENVS: 1
+      PIPENV_IGNORE_VIRTUALENVS: 1 # saiba mais consultando : https://pipenv.pypa.io/en/latest/configuration.html
     
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest                 # menção ao sistema operacional da aplicação
 
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2         #actions de verificação
 
       - name: Setup Python 3.9
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v1     #actions de setup
         with:
-          python-version: "3.9"
+          python-version: "3.9"         # versão do puthon
 
       - name: Install pipenv
-        run: pip install pipenv
+        run: pip install pipenv         # run para instalar o pipenv
 
       - name: Install dependencies
-        run: pipenv install --dev
+        run: pipenv install --dev       # run para instalar o ambiente de desenvolvimento
 
       - name: run automatic tests
         run:
-          pipenv run pytest equilibreapp/
+          pipenv run pytest equilibreapp/   # run para rodar o pytest na pasta da aplicação
