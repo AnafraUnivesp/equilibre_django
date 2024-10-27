@@ -350,18 +350,51 @@ pytest
  pip install pipenv
 
 ```
+### Configurando um workflow e corrigindo erros
+
+
+1. Foi criado um arquivo workflow para rodar os teste [django.yml](https://github.com/AnafraUnivesp/equilibre_django/blob/main/.github/workflows/django.yml)
+2. Em caso de erros na esteiras é necessário realizar algumas instalações e configurações no  [dev-packages] da pasta [Pipfile](https://github.com/AnafraUnivesp/equilibre_django/blob/main/Pipfile)
+3. Em alguns caso utilize como recurso o **Github Copilot** para auxiliar na corrção de erros. 
+
+
+## **Criando a estrututura básica da aplicação*
+
+1. Na pasta **equilibreapp**, crie uma nos estrutura de aplicação utilizando o comando abaixo:
+
+```
+...\equilibre_django\equilibreapp> 
+\equilibre_django\equilibreapp> python../manage.py startapp cadastro
+```
+
+2. Ao utilizar o comando **startapp** será criada uma nova pasta com a estrutura básica de um projeto. 
+
+```
+\equilibre_django\equilibreapp> python ../manage.py startapp cadastro
+
+```
+3. A seguir a pasta com as migrations e demais arquivos necessários para condigurar o projeto será criada. 
+
+![Estrutura Básica de um Projeto](./static/img/017_estrutura_nova_projeto.png)
+
+4. Neste caso em específico excluimos o arquivo **teste.py**, mas criamos uma pasta **testes**, pois iremos realizar testes diversos para garantir que o CRUD esteja rodando com sucesso. 
+
+5. No diretório, crie um módulo de **get** para testar o **método http get**.
+
+6. O arquivo de url.py da pasta equilibreapp configure uma rota para exibir a página
+
+7. No diretório cadastro, nesta etapa faremos um teste com o HTTP Response
+
+8. Na view da pasta cadastro iremos criar um path, indicando que todas as nossas pastas terão como origem a pasta cadastro
+
+9. Criamos um novo diretório com um arquivo em html, home.html, o qual irá apresentar uma tela com as informações em um novo formato.
 
 
 
-
-
-
-
-
-Parei Aqui [Imersão Django (EP. 2)](https://www.youtube.com/watch?v=wj4Qj73Mz7I) 
 
 
 # Referências:
 
 - [Imersão Django](https://www.youtube.com/watch?v=zLIeu9cPYrY&t=553s)
 - [Tutorial de Configuração do Render](https://www.youtube.com/watch?v=bnCOyGaSe84)
+- [Pytest Tutorial](https://pytest-with-eric.com/introduction/pytest-command-not-found/)
