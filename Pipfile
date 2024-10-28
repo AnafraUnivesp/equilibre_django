@@ -15,9 +15,10 @@ pipenv = "==2024.2.0"
 templates = "*"
 waitress = "*"
 
+
 [dev-packages]
 pytest = "*"
 pytest-django = "*"
 
 [requires]
-python_version = "3.9.13"
+python_version = "3.12.1"
