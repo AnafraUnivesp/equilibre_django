@@ -16,10 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from equilibreapp.home_view import home
+from equilibreapp.views import home
+from .views import home as equilibre_home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',home),
+    path('', equilibre_home, name='home'),
     path('cadastro/', include('equilibreapp.cadastro.urls'))
 ]
