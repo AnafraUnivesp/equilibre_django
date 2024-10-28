@@ -14,10 +14,10 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v2         #actions de verificação
 
-      - name: Setup Python 3.9
+      - name: Setup Python 3.11.10
         uses: actions/setup-python@v1     #actions de setup
         with:
-          python-version: "3.9"         # versão do puthon
+          python-version: "3.11.10"         # versão do puthon
 
       - name: Install pipenv
         run: pip install pipenv         # run para instalar o pipenv
