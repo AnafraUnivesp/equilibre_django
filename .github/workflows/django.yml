@@ -7,7 +7,7 @@ jobs:
     env:
       PIPENV_NO_INHERIT: 1
       PIPENV_IGNORE_VIRTUALENVS: 1 # saiba mais consultando : https://pipenv.pypa.io/en/latest/configuration.html
-    
+      PIPENV_VERBOSITY: -1 
     runs-on: ubuntu-latest                 # menção ao sistema operacional da aplicação
 
     steps:
