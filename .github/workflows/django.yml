@@ -7,17 +7,17 @@ jobs:
     env:
       PIPENV_NO_INHERIT: 1
       PIPENV_IGNORE_VIRTUALENVS: 1 # saiba mais consultando : https://pipenv.pypa.io/en/latest/configuration.html
-      PIPENV_VERBOSITY: -1 
+      PIPENV_VERBOSITY: -1
     runs-on: ubuntu-latest                 # menção ao sistema operacional da aplicação
 
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2         #actions de verificação
 
-      - name: Setup Python 3.12
+      - name: Setup Python 3.9
         uses: actions/setup-python@v1     #actions de setup
         with:
-          python-version: "3.12"         # versão do puthon
+          python-version: "3.9"         # versão do puthon
 
       - name: Install pipenv
         run: pip install pipenv         # run para instalar o pipenv
