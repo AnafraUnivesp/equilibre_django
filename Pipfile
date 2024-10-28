@@ -12,7 +12,7 @@ sqlparse = "==0.5.1"
 typing-extensions = "==4.12.2"
 tzdata = "==2024.2"
 pipenv = "==2024.2.0"
-
+templates = "*"
 
 [dev-packages]
 pytest = "*"
